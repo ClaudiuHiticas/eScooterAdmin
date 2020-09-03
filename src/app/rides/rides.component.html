@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+
+<br>
+<table>
+  <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>User Email</th>
+    <th>Scooter</th>
+    <th>Duration</th>
+    <th>Price</th>
+    <th>Distance</th>
+  </tr>
+  <tr *ngFor="let ride of rides" (click)="gotoDetail(ride._id)">
+    <td>{{ride.startTs | date: "medium"}}</td>
+    <td>{{ride.endTs | date: "medium"}}</td>
+    <td>{{ride.user.email}}</td>
+    <td>{{ride.scooter.code}}</td>
+    <td>{{ride.duration}} sec</td>
+    <td>{{ride.cost/100 | currency: "RON "}}</td>
+    <td>{{ride.distance}} m</td>
+  </tr>
+
+</table>
+

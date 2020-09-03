@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="scooter">
+
+  <p>ScooterId id: <b>{{scooter._id }}</b></p>
+  <p>Code: <b>{{scooter.code}}</b></p>
+  <p>Battery: <b>{{scooter.battery}}</b></p>
+  <p>Locked: <b>{{scooter.locked}}</b></p>
+  <p>Status: <b>{{scooter.status}}</b></p>
+  <p>InternalId: <b>{{scooter.internalId}}</b></p>
+  <p>GPS Coordinates: <b>{{scooter.location[0] | number: '2.5-5' }}, {{scooter.location[1] | number: '2.5-5' }}</b></p>
+
+
+  <div *ngIf="scooter.status === 'disabled'">
+    <button style="color: green" (click)="suspendScooter(scooter._id) ">Activate scooter</button>
+  </div>
+  <div *ngIf="scooter.status === 'available'">
+    <button style="color: red" (click)="suspendScooter(scooter._id)">Suspended scooter</button>
+  </div>
+
+
+<br>
+<google-map
+  *ngIf="scooter"
+  height="500px"
+  width="70%"
+  [zoom]=17
+  [center]="center"
+  [options]="options"
+  (mapClick)="click($event)"
+>
+
+  <map-marker
+    *ngIf="scooter"
+    [position]="{lat: scooter.location[0], lng: scooter.location[1]}"
+    [label]="scooter.code"
+  >
+  </map-marker>
+
+</google-map>
+</div>

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="user">
+
+  <p>Username: <b>{{user.username}}</b></p>
+  <p>Email: <b>{{user.email}}</b></p>
+  <p>Number of rides: <b>{{user.rideCount}}</b></p>
+  <p>Account suspended: <b>{{user.suspended}}</b></p>
+  <p>Joined date: <b>{{user.createdTs | date: "longDate"}}</b></p>
+
+  <div *ngIf="user.driverLicenseUrl">
+    <img src="{{user.driverLicenseUrl}}" alt="driver licence">
+  </div>
+
+  <div *ngIf="user.suspended">
+    <button style="color: green" (click)="suspendUser(user._id)">Activate account</button>
+  </div>
+  <div *ngIf="!user.suspended">
+    <button style="color: red" (click)="suspendUser(user._id)">Suspend account</button>
+  </div>
+</div>

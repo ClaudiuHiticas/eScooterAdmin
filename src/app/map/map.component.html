@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<br>
+<google-map
+  height="700px"
+  width="100%"
+  [zoom]=13
+  [center]="center"
+  [options]="options"
+  (mapClick)="click($event)"
+>
+  <map-marker
+    *ngFor="let scooter of scooters"
+    [position]="{lat: scooter.location[0], lng: scooter.location[1]}"
+    [label]="scooter.code"
+    (mapClick)="openInfo(scooter._id)"
+  >
+  </map-marker>
+
+
+</google-map>

@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="ride">
+
+  <p>Ride id: <b>{{ride._id }}</b></p>
+  <p>Date Start: <b>{{ride.startTs | date: "medium"}}</b></p>
+  <div *ngIf="ride.endTs">
+    <p>Date End: <b>{{ride.endTs | date: "medium"}}</b></p>
+  </div>
+  <p>User: <b>{{ride.user.username}}</b></p>
+  <p>User Email: <b>{{ride.user.email}}</b></p>
+  <div *ngIf="ride.endTs">
+
+    <div *ngIf="ride.duration < 60">
+      <p>Duration: <b>{{ride.duration}} sec</b></p>
+    </div>
+    <div *ngIf="ride.duration >= 60">
+      <p>Duration: <b>{{parseInt(ride.duration/60, 10)}} min {{ride.duration%60}} sec</b></p>
+    </div>
+    <p>Price: <b>{{ride.cost/100 | currency: "RON "}}</b></p>
+    <div *ngIf="ride.distance < 1000">
+     <p>Distance: <b>{{ride.distance}} m</b></p>
+    </div>
+    <div *ngIf="ride.distance >= 1000">
+      <p>Distance: <b>{{ride.distance/1000}} km</b></p>
+    </div>
+  </div>
+  <div *ngIf="!ride.endTs">
+    <h3>Ride in Progress</h3>
+  </div>
+
+  <br>
+
+  <google-map
+    height="500px"
+    width="70%"
+    [zoom]=13
+    [center]="center"
+    [options]="options"
+    (mapClick)="click($event)"
+  >
+    <map-marker
+      *ngFor="let location of ride.route"
+      [position]="{lat: location[0], lng: location[1]}"
+      [label]="(ride.route.indexOf(location)+1).toString()"
+    >
+    </map-marker>
+
+  </google-map>
+</div>

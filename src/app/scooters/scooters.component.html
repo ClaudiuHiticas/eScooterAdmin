@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<br>
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Battery</th>
+    <th>Locked</th>
+    <th>Booked</th>
+    <th>internalId</th>
+    <th>GPS Coordinates</th>
+  </tr>
+  <tr *ngFor="let scooter of scooters" (click)="gotoDetail(scooter._id)">
+    <td>{{scooter.code}}</td>
+    <td>{{scooter.battery}}</td>
+    <td>{{scooter.locked}}</td>
+    <td>{{scooter.status}}</td>
+    <td>{{scooter.internalId}}</td>
+    <td>{{scooter.location[0] | number: '2.5-5' }}, {{scooter.location[1] | number: '2.5-5' }}</td>
+  </tr>
+</table>

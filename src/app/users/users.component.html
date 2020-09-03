@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<br>
+<h2>Users</h2>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Rides</th>
+    <th>Suspended</th>
+    <th>Joined</th>
+  </tr>
+  <tr *ngFor="let user of users" (click)="gotoDetail(user._id)">
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.rideCount}}</td>
+    <td>{{user.suspended}}</td>
+    <td>{{user.createdTs | date: "longDate"}}</td>
+  </tr>
+</table>
+

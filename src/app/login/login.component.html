@@ -1,0 +1,20 @@
+<h2>Login</h2>
+
+  <form #loginForm="ngForm">
+
+    <div class="form-group">
+      <label>
+        Username
+        <input type="text" class="form-control" required [(ngModel)]="admin.email" [ngModelOptions]="{standalone: true}"/>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>
+        Password
+        <input type="password" class="form-control" required [(ngModel)]="admin.password" [ngModelOptions]="{standalone: true}"/>
+      </label>
+    </div>
+    <p *ngIf="hasError">Email or password are invalid!</p>
+    <button type="button" (click)="login()">Login</button>
+  </form>
