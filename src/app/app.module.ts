@@ -18,29 +18,34 @@ import { RideDetailComponent } from './rides/ride-detail/ride-detail.component';
 import { ScooterDetailComponent } from './scooters/scooter-detail/scooter-detail.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './map/map.component';
+import {ScooterNewComponent} from './scooters/scooter-new/scooter-new.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    UsersComponent,
-    LandingPageComponent,
-    NavbarComponent,
-    ScootersComponent,
-    UserDetailComponent,
-    RidesComponent,
-    RideDetailComponent,
-    ScooterDetailComponent,
-    MapComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    GoogleMapsModule
-  ],
-  providers: [LoginComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        UsersComponent,
+        LandingPageComponent,
+        NavbarComponent,
+        ScootersComponent,
+        UserDetailComponent,
+        RidesComponent,
+        RideDetailComponent,
+        ScooterDetailComponent,
+        ScooterNewComponent,
+        MapComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        GoogleMapsModule
+    ],
+    providers: [LoginComponent],
+    exports: [
+        NavbarComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

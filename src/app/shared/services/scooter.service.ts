@@ -38,4 +38,8 @@ export class ScooterService {
     return this.http.patch<Scooter>(url, {}).toPromise();
   }
 
+  addScooter(code: string, internalId: string): Promise<Scooter> {
+    const url = `${environment.baseUrl}/scooters/new`;
+    return this.http.post<Scooter>(url, {code, internalId}).toPromise();
+  }
 }

@@ -16,9 +16,10 @@
     <td>{{ride.endTs | date: "medium"}}</td>
     <td>{{ride.user.email}}</td>
     <td>{{ride.scooter.code}}</td>
-    <td>{{ride.duration}} sec</td>
-    <td>{{ride.cost/100 | currency: "RON "}}</td>
-    <td>{{ride.distance}} m</td>
+    <td *ngIf="ride.endTs">{{ride.duration}} sec</td>
+    <td *ngIf="ride.endTs">{{ride.cost/100 | currency: "RON "}}</td>
+    <td *ngIf="ride.endTs">{{ride.distance}} m</td>
+
   </tr>
 
 </table>

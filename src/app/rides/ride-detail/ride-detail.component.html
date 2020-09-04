@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-
 <div *ngIf="ride">
 
   <p>Ride id: <b>{{ride._id }}</b></p>
@@ -7,10 +6,9 @@
   <div *ngIf="ride.endTs">
     <p>Date End: <b>{{ride.endTs | date: "medium"}}</b></p>
   </div>
-  <p>User: <b>{{ride.user.username}}</b></p>
+  <p>User: <b>{{ride.user?.username}}</b></p>
   <p>User Email: <b>{{ride.user.email}}</b></p>
   <div *ngIf="ride.endTs">
-
     <div *ngIf="ride.duration < 60">
       <p>Duration: <b>{{ride.duration}} sec</b></p>
     </div>
@@ -31,20 +29,26 @@
 
   <br>
 
-  <google-map
-    height="500px"
-    width="70%"
-    [zoom]=13
-    [center]="center"
-    [options]="options"
-    (mapClick)="click($event)"
-  >
-    <map-marker
-      *ngFor="let location of ride.route"
-      [position]="{lat: location[0], lng: location[1]}"
-      [label]="(ride.route.indexOf(location)+1).toString()"
-    >
-    </map-marker>
+<!--  <google-map-->
+<!--    *ngIf="ride.endTs"-->
+<!--    height="500px"-->
+<!--    width="70%"-->
+<!--    [zoom]=13-->
+<!--    [center]="center"-->
+<!--    [options]="options"-->
+<!--    (mapClick)="click($event)"-->
+<!--  >-->
+<!--    <map-marker-->
+<!--      *ngFor="let location of ride.route"-->
+<!--      [position]="{lat: location[0], lng: location[1]}"-->
+<!--      [label]="(ride.route.indexOf(location)+1).toString()"-->
+<!--    >-->
+<!--    </map-marker>-->
+<!--  </google-map>-->
+<!--  <div *ngIf="ride.endTs">-->
+<!--  </div>-->
 
-  </google-map>
 </div>
+
+
+<div id="map" style="width: 70%; height: 500px;"></div>

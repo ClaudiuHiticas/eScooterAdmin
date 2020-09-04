@@ -31,4 +31,8 @@ export class ScootersComponent implements OnInit {
   gotoDetail(id: string): void {
     this.router.navigate(['/scooters/', id]);
   }
+
+  async newScooter() {
+    await this.router.navigate(['/scooters/new']);
+  }
 }

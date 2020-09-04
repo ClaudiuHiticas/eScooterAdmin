@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}

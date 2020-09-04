@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<form #songNew="ngForm">
+  <br>
+  <label>Code
+    <input #code/>
+    <br/>
+  </label>
+  <br>
+  <label>InternalId
+    <input #internalId/>
+    <br/>
+  </label>
+  <br>
+  <br>
+  <p *ngIf="isNull">Code or InternalId are invalid!</p>
+  <p *ngIf="alreadyExist">Code already exist!</p>
+  <button type="button" (click)="saveScooter(code.value, internalId.value)">
+    Save
+  </button>
+</form>

@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     try{
       this.hasError = false;
       const response = await this.authService.login(this.admin.email, this.admin.password);
-      console.log(response.admin);
       await this.router.navigateByUrl('/');
     } catch (e) {
       this.hasError = true;

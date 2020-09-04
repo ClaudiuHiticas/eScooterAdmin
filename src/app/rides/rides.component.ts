@@ -27,7 +27,6 @@ export class RidesComponent implements OnInit {
 
   async loadData() {
     this.rides = await this.rideService.getRides();
-    console.log(this.rides);
   }
 
 
