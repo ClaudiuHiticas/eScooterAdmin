@@ -1,5 +1,10 @@
 # EScooterAdmin
 
+Test the app:
+https://escooter-1b465.web.app/
+username: admin2@escooters.com
+password: admin123
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
 ## Development server
