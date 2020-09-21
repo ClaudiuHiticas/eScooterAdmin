@@ -1,9 +1,9 @@
 # EScooterAdmin
 
-Test the app:
-https://escooter-1b465.web.app/
-username: admin2@escooters.com
-password: admin123
+Test the app: </br>
+https://escooter-1b465.web.app/ </br>
+username: admin2@escooters.com </br>
+password: admin123 </br>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
